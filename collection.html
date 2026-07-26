@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collection — Tania Kayani</title>
+  <meta name="description" content="A collection by fashion designer Tania Kayani." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="nav on-dark">
+    <a class="nav__brand" href="index.html">
+      <div class="nav__brand-name">Tania Kayani</div>
+      <div class="nav__brand-sub">Fashion Designer</div>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#content">Content</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <button class="nav__toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main id="collection">
+    <!-- Detail hero -->
+    <section class="detail-hero">
+      <div class="detail-hero__bg"><img id="dHeroImg" alt="Collection hero" /></div>
+      <div class="detail-hero__inner wrap">
+        <a href="index.html#work" class="eyebrow" style="color:rgba(246,243,238,.85);display:inline-block;margin-bottom:1rem">&larr; All Work</a>
+        <div class="card__cat" id="dCat" style="color:rgba(246,243,238,.85)"></div>
+        <h1 class="detail-hero__title" id="dTitle"></h1>
+      </div>
+    </section>
+
+    <!-- Meta / statement -->
+    <section class="section" style="padding-bottom:clamp(2.5rem,6vw,5rem)">
+      <div class="wrap">
+        <div class="detail-meta" style="padding-bottom:clamp(2.5rem,6vw,4rem)">
+          <p class="detail-meta__statement reveal" id="dStatement"></p>
+          <div class="detail-facts reveal" id="dFacts"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="gallery" id="dGallery"></div>
+      </div>
+    </section>
+
+    <!-- Next collection -->
+    <a class="next" id="dNext" href="#">
+      <div class="next__bg"><img id="dNextImg" alt="Next collection" /></div>
+      <div class="next__inner">
+        <div class="next__label">Next Collection</div>
+        <h2 class="next__title" id="dNextTitle"></h2>
+      </div>
+    </a>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap footer__row">
+      <span>&copy; <span id="year"></span> Tania Kayani</span>
+      <div class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="mailto:tania.kayani@example.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/images.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

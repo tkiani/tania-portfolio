@@ -1,0 +1,8 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+
+# Node (not required, but reserved for future tooling)
+node_modules/
