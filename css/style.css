@@ -222,6 +222,26 @@ h1, h2, h3, h4 {
 .feature__mosaic img { width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: grayscale(0.2); transition: filter 0.5s var(--ease), transform 0.8s var(--ease); }
 .feature__mosaic img:hover { filter: none; transform: scale(1.03); }
 
+/* ---------- Garment slider ---------- */
+.slider { position: relative; margin-top: clamp(1.5rem, 4vw, 2.5rem); }
+.slider__viewport { overflow: hidden; }
+.slider__track { display: flex; gap: 1rem; padding-inline: clamp(1.2rem, 5vw, 4rem); scroll-behavior: smooth; will-change: transform; transition: transform 0.6s var(--ease); }
+.slider__slide { flex: 0 0 auto; width: clamp(220px, 26vw, 340px); }
+.slider__slide img { width: 100%; height: clamp(300px, 34vw, 460px); object-fit: cover; border-radius: 4px; cursor: pointer; filter: grayscale(0.15); transition: filter 0.5s var(--ease), transform 0.8s var(--ease); }
+.slider__slide img:hover { filter: none; transform: scale(1.02); }
+.slider__btn {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+  width: 3rem; height: 3rem; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; line-height: 1; cursor: pointer;
+  background: var(--bg); color: var(--ink); border: 1px solid var(--line);
+  box-shadow: 0 6px 20px rgba(20,17,14,0.12);
+  transition: 0.4s var(--ease);
+}
+.slider__btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.slider__prev { left: clamp(0.4rem, 2vw, 1.4rem); }
+.slider__next { right: clamp(0.4rem, 2vw, 1.4rem); }
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; gap: 0.7rem;

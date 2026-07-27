@@ -142,8 +142,41 @@
       });
     }
 
+    // Garment slider
+    renderGarmentSlider();
+
     // Fill designer bits
     qsa('[data-designer-name]').forEach(function (n) { n.textContent = P.designer.name; });
+  }
+
+  /* ---------- Garment slider ---------- */
+  function renderGarmentSlider() {
+    var track = qs('#garmentTrack');
+    if (!track) return;
+    var garments = P.myGarments;
+    if (!garments) return;
+    var images = garments.images;
+
+    images.forEach(function (src, i) {
+      var slide = el('div', 'slider__slide');
+      var img = el('img');
+      img.loading = 'lazy';
+      img.src = src;
+      img.alt = 'Garment by ' + P.designer.name;
+      img.addEventListener('click', function () { openLightbox(images, i); });
+      slide.appendChild(img);
+      track.appendChild(slide);
+    });
+
+    var slider = qs('#garmentSlider');
+    var viewport = qs('.slider__viewport', slider);
+    function scrollByAmount(dir) {
+      var slide = qs('.slider__slide', track);
+      var step = slide ? slide.getBoundingClientRect().width + 16 : viewport.clientWidth * 0.8;
+      viewport.scrollBy({ left: dir * step * 2, behavior: 'smooth' });
+    }
+    qs('.slider__prev', slider).addEventListener('click', function () { scrollByAmount(-1); });
+    qs('.slider__next', slider).addEventListener('click', function () { scrollByAmount(1); });
   }
 
   /* ---------- Collection page rendering ---------- */

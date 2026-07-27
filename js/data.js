@@ -64,8 +64,8 @@
     },
     {
       slug: 'asian-embroidery',
-      title: 'Asian Embroidery',
-      subtitle: 'Gulnaaz · Mah-e-Kamil · Mirha · Zeenia',
+      title: 'Work Experience, Techpack & Digital Embroidery',
+      subtitle: '',
       category: 'Bridal & Formal Capsule',
       year: '2025',
       discipline: 'Embroidery · Surface Design · Bridal',
@@ -110,7 +110,7 @@
     {
       slug: 'textiles',
       title: 'Textiles',
-      subtitle: 'Material Research',
+      subtitle: 'Vintage Prints',
       category: 'Textile Design',
       year: '2023–2025',
       discipline: 'Textiles · Sampling · Development',
@@ -122,6 +122,20 @@
     }
   ];
 
+  var myGarments = {
+    slug: 'my-garments',
+    title: 'My Garments',
+    subtitle: 'Made by Hand',
+    category: 'Garment Realisation',
+    year: '2024–2025',
+    discipline: 'Design · Pattern Cutting · Construction',
+    blurb:
+      'Finished garments I designed and made — from structured corsetry and voluminous sleeves to draped, chain-detailed silhouettes brought to life on the body.',
+    statement:
+      'This selection brings together garments I have designed and constructed myself, photographed on the runway, in the studio and on the stand. The work spans corsetry, gathered and ruched volume, pleating, hardware detailing and full evening silhouettes — evidence of a hands-on maker who takes a concept through pattern cutting, toile and final construction to a resolved, wearable piece.',
+    images: build('6 - My Garments')
+  };
+
   var contentCreator = {
     slug: 'content-creator',
     title: 'Content Creation',
@@ -130,9 +144,9 @@
     year: '2024–2025',
     discipline: 'Styling · Photography Direction · Social',
     blurb:
-      'Fashion content built for the feed — styling, art direction and social storytelling that turns collections into engagement.',
+      'Content built for the feed — travel, lifestyle and storytelling through styling, art direction and social-first posts that turn ideas into engagement.',
     statement:
-      'Beyond the atelier, I create fashion content that builds audiences and sells a point of view. This body of work spans styling, shoot direction and social-first storytelling — the modern skill set brands need to translate design into reach, engagement and community.',
+      'Beyond the studio, I create content that builds audiences and tells a story. This body of work spans travel and lifestyle content, styling, shoot direction and social-first storytelling — turning ideas into reach, engagement and community.',
     images: build('Content Creator')
   };
 
@@ -150,6 +164,7 @@
       ]
     },
     collections: collections,
-    contentCreator: contentCreator
+    contentCreator: contentCreator,
+    myGarments: myGarments
   };
 })();
