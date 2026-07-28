@@ -161,7 +161,7 @@ window.__IMAGES__ = {
     "Gemini_Generated_Image_k8bq8vk8bq8vk8bq.png",
     "Gemini_Generated_Image_51cdv551cdv551cd.png",
     "WhatsApp Image 2026-07-27 at 11.19.11 AM.jpeg",
-    "WhatsApp Image 2026-07-27 at 11.19.10 AM (1).jpeg",
+    "Gemini_Generated_Image_nom0c4nom0c4nom0.png",
     "WhatsApp Image 2026-07-27 at 11.19.11 AM (1).jpeg",
     "WhatsApp Image 2026-07-27 at 11.19.10 AM.jpeg",
     "WhatsApp Image 2026-07-27 at 11.19.10 AM (2).jpeg",
@@ -177,7 +177,7 @@ window.__IMAGES__ = {
     "Gemini_Generated_Image_8k1gb38k1gb38k1g (1).png",
     "Gemini_Generated_Image_aarccqaarccqaarc (1).png",
     "3A7A9194.jpg",
-    "Gemini_Generated_Image_nom0c4nom0c4nom0.png",
+    "WhatsApp Image 2026-07-27 at 11.19.10 AM (1).jpeg",
     "Gemini_Generated_Image_q8b6xfq8b6xfq8b6.png"
   ],
 };
