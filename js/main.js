@@ -128,7 +128,7 @@
 
     // Hero background — use a strong opening image.
     var heroImg = qs('#heroImg');
-    if (heroImg) heroImg.src = P.collections[0].images[0];
+    if (heroImg) heroImg.src = (P.myGarments && P.myGarments.images[0]) || P.collections[0].images[0];
 
     // Content creator mosaic
     var mosaic = qs('#ccMosaic');
