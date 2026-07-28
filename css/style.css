@@ -135,6 +135,8 @@ h1, h2, h3, h4 {
 .hero--compact .hero__title { font-size: clamp(2.6rem, 8vw, 5.5rem); }
 .hero--compact .eyebrow { margin-top: 0.9rem; }
 .hero--compact + .garments { padding-top: 0; }
+.garments { padding-bottom: clamp(1.2rem, 3vw, 2.4rem); }
+.garments + .section { padding-top: clamp(1.5rem, 4vw, 3rem); }
 .hero__bg::after {
   content: '';
   position: absolute; inset: 0;
