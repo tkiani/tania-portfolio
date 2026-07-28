@@ -126,8 +126,8 @@
       grid.appendChild(a);
     });
 
-    // Hero background — rotating slideshow of garment images.
-    renderHeroSlideshow();
+    // Hero garment card slider.
+    renderGarmentSlider();
 
     // Content creator mosaic
     var mosaic = qs('#ccMosaic');
@@ -145,34 +145,32 @@
     qsa('[data-designer-name]').forEach(function (n) { n.textContent = P.designer.name; });
   }
 
-  /* ---------- Hero garment slideshow ---------- */
-  function renderHeroSlideshow() {
-    var box = qs('#heroSlideshow');
-    if (!box || !P.myGarments) return;
+  /* ---------- Garment slider ---------- */
+  function renderGarmentSlider() {
+    var track = qs('#garmentTrack');
+    if (!track || !P.myGarments) return;
     var images = P.myGarments.images;
-    if (!images.length) return;
 
-    var a = el('img');
-    a.src = images[0];
-    a.alt = 'Garment by ' + P.designer.name;
-    a.className = 'is-active';
-    var b = el('img');
-    b.alt = 'Garment by ' + P.designer.name;
-    box.appendChild(a);
-    box.appendChild(b);
+    images.forEach(function (src, i) {
+      var slide = el('div', 'slider__slide');
+      var img = el('img');
+      img.loading = 'lazy';
+      img.src = src;
+      img.alt = 'Garment by ' + P.designer.name;
+      img.addEventListener('click', function () { openLightbox(images, i); });
+      slide.appendChild(img);
+      track.appendChild(slide);
+    });
 
-    if (images.length < 2) return;
-    var idx = 0;
-    var showingA = true;
-    setInterval(function () {
-      idx = (idx + 1) % images.length;
-      var next = showingA ? b : a;
-      var cur = showingA ? a : b;
-      next.src = images[idx];
-      next.classList.add('is-active');
-      cur.classList.remove('is-active');
-      showingA = !showingA;
-    }, 4500);
+    var slider = qs('#garmentSlider');
+    var viewport = qs('.slider__viewport', slider);
+    function scrollByAmount(dir) {
+      var slide = qs('.slider__slide', track);
+      var step = slide ? slide.getBoundingClientRect().width + 16 : viewport.clientWidth * 0.8;
+      viewport.scrollBy({ left: dir * step * 2, behavior: 'smooth' });
+    }
+    qs('.slider__prev', slider).addEventListener('click', function () { scrollByAmount(-1); });
+    qs('.slider__next', slider).addEventListener('click', function () { scrollByAmount(1); });
   }
 
   /* ---------- Collection page rendering ---------- */
