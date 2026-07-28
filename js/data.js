@@ -152,7 +152,7 @@
 
   window.PORTFOLIO = {
     designer: {
-      name: 'Tania Kayani',
+      name: 'Tania Zahid Kiani',
       role: 'Fashion Designer & Content Creator',
       tagline: 'Designing considered collections where craft, culture and concept meet.',
       email: 'tania.kayani@example.com',
