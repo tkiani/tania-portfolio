@@ -22,6 +22,21 @@
     return out;
   }
 
+  // Return encoded paths for a specific, hand-picked set of filenames in a folder.
+  function pick(folder, names) {
+    return names.map(function (name) {
+      return encodeURI(folder + '/' + name);
+    });
+  }
+
+  // Everything in a folder that hasn't been explicitly used above.
+  function rest(folder, usedNames) {
+    var files = IMG[folder] || [];
+    return files
+      .filter(function (name) { return usedNames.indexOf(name) === -1; })
+      .map(function (name) { return encodeURI(folder + '/' + name); });
+  }
+
   var collections = [
     {
       slug: 'spoils-of-war',
@@ -136,6 +151,78 @@
     images: build('6 - My Garments')
   };
 
+  var GD = '7 - Graphic Design';
+  var gdFeatured = [
+    'professional 1-Recovered.jpg', 'professional 5-Recovered.jpg', 'professional 7-Recovered.jpg',
+    'BANNER 1.jpg', 'BANNER 2.jpg', 'BANNER 4.jpg',
+    'book cover 1.jpg', 'book cover 2.jpg', 'book cover  4.jpg',
+    'a-4 screen printing.jpg', 'a-5 screen printing.jpg', 'screen printing tetile 7.jpg',
+    'REPEAT 4.jpg', 'TEX 2 4.jpg', 'tex 77.jpg', 'TEX 8-Recovered.jpg', 'scarf print tania 1.jpg',
+    'development 17.jpg', 'developments and elements.jpg'
+  ];
+
+  var graphicDesign = {
+    slug: 'graphic-design',
+    title: 'Graphic Design',
+    subtitle: 'Visual Communication',
+    category: 'Graphic Design & Art Direction',
+    year: '2022–2025',
+    discipline: 'Layout · Typography · Print · Campaign',
+    blurb:
+      'A graphic design practice built around message and craft — purpose-led campaign posters, editorial covers, screen-printed graphics and repeat prints where every layout is composed, not decorated.',
+    statement:
+      'This is design that communicates. Working across campaign posters, brand banners, book covers, screen printing and repeat prints, I take a brief from concept and research through typographic system, composition and colour to a finished, print-ready artwork. The work moves fluidly between the poster wall and the fabric roll — a visual language rooted in strong hierarchy, considered type and a designer\u2019s eye for the details that make a layout feel intentional.',
+    // Curated cover for the homepage feature and hero.
+    cover: encodeURI(GD + '/professional 1-Recovered.jpg'),
+    disciplines: ['Campaign & Poster', 'Editorial & Covers', 'Screen Printing', 'Repeat & Textile Graphics', 'Type & Layout'],
+    groups: [
+      {
+        title: 'Campaign & Poster Design',
+        num: '01',
+        caption: 'Purpose-driven visual campaigns — bold type, single-message hierarchy and imagery that stops the scroll and makes a point.',
+        images: pick(GD, ['professional 1-Recovered.jpg', 'professional 5-Recovered.jpg', 'professional 7-Recovered.jpg'])
+      },
+      {
+        title: 'Banners & Brand Graphics',
+        num: '02',
+        caption: 'Wide-format brand banners built to hold their message at a glance — balanced composition, confident type and colour that carries a brand voice.',
+        images: pick(GD, ['BANNER 1.jpg', 'BANNER 2.jpg', 'BANNER 4.jpg'])
+      },
+      {
+        title: 'Editorial & Book Covers',
+        num: '03',
+        caption: 'Cover design where concept meets craft — typographic hierarchy, image treatment and layout that make a story tangible on the shelf.',
+        images: pick(GD, ['book cover 1.jpg', 'book cover 2.jpg', 'book cover  4.jpg'])
+      },
+      {
+        title: 'Screen Printing',
+        num: '04',
+        caption: 'Graphics translated to the print bed — separations, layered colour and hands-on process that bridges digital artwork and physical print.',
+        images: pick(GD, ['a-4 screen printing.jpg', 'a-5 screen printing.jpg', 'screen printing tetile 7.jpg'])
+      },
+      {
+        title: 'Repeat, Print & Scarf Design',
+        num: '05',
+        caption: 'Surface graphics engineered as repeats — motif development, colourways and placement designed to sit as beautifully on fabric as on the page.',
+        images: pick(GD, ['REPEAT 4.jpg', 'TEX 2 4.jpg', 'tex 77.jpg', 'TEX 8-Recovered.jpg', 'scarf print tania 1.jpg'])
+      },
+      {
+        title: 'Process & Development',
+        num: '06',
+        caption: 'The thinking behind the finished piece — elements, iterations and development work that show how each design was resolved.',
+        images: pick(GD, ['development 17.jpg', 'developments and elements.jpg'])
+      },
+      {
+        title: 'Selected Graphics & Explorations',
+        num: '07',
+        caption: 'A wider archive of compositions, type studies and applied graphics across the practice.',
+        images: rest(GD, gdFeatured)
+      }
+    ],
+    // Flat list (used for lightbox + hero mosaic), curated order.
+    images: pick(GD, gdFeatured).concat(rest(GD, gdFeatured))
+  };
+
   var contentCreator = {
     slug: 'content-creator',
     title: 'Content Creation',
@@ -165,6 +252,7 @@
     },
     collections: collections,
     contentCreator: contentCreator,
+    graphicDesign: graphicDesign,
     myGarments: myGarments
   };
 })();

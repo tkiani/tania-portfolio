@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphic Design — Tania Zahid Kiani</title>
+  <meta name="description" content="Graphic design portfolio of Tania Zahid Kiani — campaign posters, editorial covers, screen printing and repeat print graphics. Layout, typography and art direction with a designer's eye." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="gd-page">
+
+  <!-- Navigation -->
+  <header class="nav on-dark">
+    <a class="nav__brand" href="index.html">
+      <div class="nav__brand-name">Tania Zahid Kiani</div>
+      <div class="nav__brand-sub">Fashion Designer</div>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="graphic-design.html" class="active">Graphic Design</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <button class="nav__toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main id="graphicDesign">
+
+    <!-- Hero -->
+    <section class="gd-hero">
+      <div class="gd-hero__grid wrap">
+        <div class="gd-hero__type">
+          <a href="index.html#work" class="eyebrow gd-hero__back">&larr; All Work</a>
+          <div class="eyebrow gd-hero__cat" id="gdCat"></div>
+          <h1 class="gd-hero__title" id="gdTitle"></h1>
+          <p class="gd-hero__lead" id="gdBlurb"></p>
+          <div class="gd-hero__tags" id="gdTags"></div>
+        </div>
+        <div class="gd-hero__frame">
+          <img id="gdHeroImg" alt="Featured graphic design work" />
+          <span class="gd-hero__caption">Selected campaign work</span>
+        </div>
+      </div>
+      <div class="gd-hero__marquee" aria-hidden="true">
+        <div class="gd-hero__marquee-track" id="gdMarquee"></div>
+      </div>
+    </section>
+
+    <!-- Statement -->
+    <section class="section gd-statement">
+      <div class="wrap gd-statement__grid">
+        <div class="eyebrow reveal">The Approach</div>
+        <p class="gd-statement__text reveal" id="gdStatement"></p>
+      </div>
+    </section>
+
+    <!-- Grouped work -->
+    <section class="section gd-groups" style="padding-top:0">
+      <div class="wrap" id="gdGroups"></div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section gd-cta">
+      <div class="wrap gd-cta__inner">
+        <div class="eyebrow reveal" style="color:var(--gold)">Let's Work Together</div>
+        <h2 class="gd-cta__title reveal">Design that says <em>something</em>.</h2>
+        <p class="reveal" style="max-width:46ch;margin:1.4rem auto 0;color:var(--ink-soft)">
+          Available for graphic design roles, freelance briefs and creative collaborations across
+          brand, print and campaign work.
+        </p>
+        <div class="contact__links reveal">
+          <a class="btn btn--solid" href="mailto:tania.kayani@example.com">Get in Touch</a>
+          <a class="btn" href="index.html#work">Back to Portfolio</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap footer__row">
+      <span>&copy; <span id="year"></span> Tania Zahid Kiani</span>
+      <div class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="mailto:tania.kayani@example.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/images.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

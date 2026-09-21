@@ -141,6 +141,18 @@
       });
     }
 
+    // Graphic design home mosaic
+    var gdMosaic = qs('#gdHomeMosaic');
+    if (gdMosaic && P.graphicDesign) {
+      P.graphicDesign.images.slice(0, 4).forEach(function (src) {
+        var img = el('img');
+        img.loading = 'lazy';
+        img.src = src;
+        img.alt = 'Graphic design work';
+        gdMosaic.appendChild(img);
+      });
+    }
+
     // Fill designer bits
     qsa('[data-designer-name]').forEach(function (n) { n.textContent = P.designer.name; });
   }
@@ -231,10 +243,70 @@
     qs('#dNextTitle').innerHTML = next.title + (next.subtitle ? ' <em>' + next.subtitle + '</em>' : '');
   }
 
+  /* ---------- Graphic Design showcase ---------- */
+  function renderGraphicDesign() {
+    var mount = qs('#graphicDesign');
+    if (!mount || !P.graphicDesign) return;
+    var g = P.graphicDesign;
+    document.title = g.title + ' — ' + P.designer.name;
+
+    // Hero
+    qs('#gdCat').textContent = g.category + ' \u00b7 ' + g.year;
+    qs('#gdTitle').innerHTML = g.title + (g.subtitle ? ' <em>' + g.subtitle + '</em>' : '');
+    qs('#gdBlurb').textContent = g.blurb;
+    qs('#gdHeroImg').src = g.cover || (g.images[0] || '');
+    qs('#gdStatement').textContent = g.statement;
+
+    var tags = qs('#gdTags');
+    (g.disciplines || []).forEach(function (d) {
+      tags.appendChild(el('span', 'gd-tag', d));
+    });
+
+    // Scrolling marquee of disciplines (duplicated for seamless loop)
+    var marquee = qs('#gdMarquee');
+    if (marquee) {
+      var words = (g.disciplines || []).concat(g.disciplines || []);
+      words.forEach(function (w) {
+        marquee.appendChild(el('span', 'gd-marquee__word', w));
+        marquee.appendChild(el('span', 'gd-marquee__dot', '&bull;'));
+      });
+    }
+
+    // Grouped work
+    var wrap = qs('#gdGroups');
+    var gridStyles = ['gd-grid--trio', 'gd-grid--trio', 'gd-grid--trio', 'gd-grid--trio', 'gd-grid--offset', 'gd-grid--pair', 'gd-grid--mosaic'];
+    g.groups.forEach(function (group, gi) {
+      if (!group.images || !group.images.length) return;
+      var section = el('div', 'gd-group reveal');
+      var head = el('div', 'gd-group__head');
+      head.innerHTML =
+        '<span class="gd-group__num">' + (group.num || String(gi + 1).padStart(2, '0')) + '</span>' +
+        '<h2 class="gd-group__title">' + group.title + '</h2>' +
+        '<p class="gd-group__caption">' + group.caption + '</p>';
+      section.appendChild(head);
+
+      var grid = el('div', 'gd-grid ' + (gridStyles[gi] || 'gd-grid--mosaic'));
+      var imgs = group.images;
+      imgs.forEach(function (src, i) {
+        var fig = el('figure', 'gd-fig');
+        var im = el('img');
+        im.loading = 'lazy';
+        im.src = src;
+        im.alt = group.title + ' — work ' + (i + 1);
+        fig.appendChild(im);
+        fig.addEventListener('click', function () { openLightbox(imgs, i); });
+        grid.appendChild(fig);
+      });
+      section.appendChild(grid);
+      wrap.appendChild(section);
+    });
+  }
+
   /* ---------- Boot ---------- */
   document.addEventListener('DOMContentLoaded', function () {
     renderHome();
     renderCollection();
+    renderGraphicDesign();
     initNav();
     initReveal();
   });
