@@ -224,8 +224,19 @@
     },
     groups: [
       {
-        title: 'Awareness Campaigns',
+        title: 'Watermelon Dew — Social Campaign',
         num: '01',
+        kind: 'Campaign · Social · Digital',
+        grid: 'gd-grid--social',
+        brief: 'Launch a watermelon beauty range across Instagram with a story, a feed post and a profile banner.',
+        concept: 'One juicy idea — “Dewy, Juicy, You” — carried across every format with fresh colour and bold type.',
+        role: 'Concept, art direction, typography, product retouching and layout for each placement.',
+        deliverables: 'Instagram story (9:16), carousel / feed post (1:1) and profile banner (3:1).',
+        images: pick(GD, ['watermelon-dew/banner.jpg', 'watermelon-dew/story.jpg', 'watermelon-dew/carousel.jpg'])
+      },
+      {
+        title: 'Awareness Campaigns',
+        num: '02',
         kind: 'Campaign · Print · Social',
         brief: 'Turn a cause into a single, arresting poster that lands its message in seconds.',
         concept: 'Symbolic, illustrative key visuals paired with one confident line of copy.',
@@ -235,7 +246,7 @@
       },
       {
         title: 'Banners & Brand Graphics',
-        num: '02',
+        num: '03',
         kind: 'Brand · Print · Digital',
         brief: 'Design wide-format banners that carry a brand message at a glance.',
         concept: 'Confident type and colour blocking built to stay legible at scale.',
@@ -245,7 +256,7 @@
       },
       {
         title: 'Editorial & Book Covers',
-        num: '03',
+        num: '04',
         kind: 'Editorial · Print',
         brief: 'Translate a story into a single, shelf-ready cover image.',
         concept: 'Typographic hierarchy and image treatment that set the tone before a page is turned.',
@@ -255,7 +266,7 @@
       },
       {
         title: 'Screen Printing',
-        num: '04',
+        num: '05',
         kind: 'Print · Illustration',
         brief: 'Take detailed illustration to the print bed as clean, separated artwork.',
         concept: 'Line and layered colour engineered for a physical, hands-on print process.',
@@ -265,7 +276,7 @@
       },
       {
         title: 'Repeat, Print & Scarf Design',
-        num: '05',
+        num: '06',
         kind: 'Print · Surface · Digital',
         brief: 'Develop surface graphics that work as seamless repeats across products.',
         concept: 'Motifs and colourways designed to sit as beautifully on fabric as on the page.',
@@ -275,7 +286,7 @@
       },
       {
         title: 'Process & Development',
-        num: '06',
+        num: '07',
         kind: 'Research · Development',
         brief: 'Show the thinking that resolves a design from first idea to finished piece.',
         concept: 'Elements, iterations and refinement documented openly.',
@@ -285,7 +296,7 @@
       },
       {
         title: 'Selected Graphics & Explorations',
-        num: '07',
+        num: '08',
         kind: 'Mixed · Studies',
         brief: 'A wider archive of applied graphics and type studies across briefs.',
         concept: 'Ongoing exploration across formats, subjects and treatments.',

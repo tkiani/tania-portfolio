@@ -337,7 +337,7 @@
         caseHtml(group);
       section.appendChild(head);
 
-      var grid = el('div', 'gd-grid ' + (gridStyles[gi] || 'gd-grid--mosaic'));
+      var grid = el('div', 'gd-grid ' + (group.grid || gridStyles[gi] || 'gd-grid--mosaic'));
       var imgs = group.images;
       imgs.forEach(function (src, i) {
         var fig = el('figure', 'gd-fig');

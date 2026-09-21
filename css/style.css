@@ -454,6 +454,12 @@ h1, h2, h3, h4 {
 @media (min-width: 1100px){ .gd-grid--mosaic { grid-template-columns: repeat(4, 1fr); } }
 .gd-grid--mosaic .gd-fig { aspect-ratio: 1/1; }
 
+/* Social campaign layout — banner full width, story + carousel below */
+.gd-grid--social { grid-template-columns: repeat(2, 1fr); align-items: start; }
+.gd-grid--social .gd-fig:first-child { grid-column: 1 / -1; aspect-ratio: 3 / 1; }
+.gd-grid--social .gd-fig:nth-child(2) { aspect-ratio: 9 / 16; }
+.gd-grid--social .gd-fig:nth-child(3) { aspect-ratio: 1 / 1; }
+
 /* ---------- CTA ---------- */
 .gd-cta { text-align: center; background: var(--bg-alt); }
 .gd-cta__title { font-size: clamp(2.2rem,7vw,5rem); margin-top: 1.2rem; }
