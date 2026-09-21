@@ -152,14 +152,18 @@
   };
 
   var GD = '7 - Graphic Design';
-  var gdFeatured = [
+  var gdEllipsis = [
+    'Screenshot 2023-07-02 135125.jpg', 'Screenshot 2023-07-02 150707.jpg',
+    'Screenshot 2023-07-02 152445.jpg', 'Screenshot 2023-07-02 214209.jpg'
+  ];
+  var gdFeatured = gdEllipsis.concat([
     'professional 1-Recovered.jpg', 'professional 5-Recovered.jpg', 'professional 7-Recovered.jpg',
     'BANNER 1.jpg', 'BANNER 2.jpg', 'BANNER 4.jpg',
     'book cover 1.jpg', 'book cover 2.jpg', 'book cover  4.jpg',
-    'a-4 screen printing.jpg', 'a-5 screen printing.jpg', 'screen printing tetile 7.jpg',
+    'a-5 screen printing.jpg', 'screen printing tetile 7.jpg',
     'REPEAT 4.jpg', 'TEX 2 4.jpg', 'tex 77.jpg', 'TEX 8-Recovered.jpg', 'scarf print tania 1.jpg',
     'development 17.jpg', 'developments and elements.jpg'
-  ];
+  ]);
 
   var graphicDesign = {
     slug: 'graphic-design',
@@ -167,14 +171,47 @@
     subtitle: 'Visual Communication',
     category: 'Graphic Design & Art Direction',
     year: '2022–2025',
-    discipline: 'Layout · Typography · Print · Campaign',
+    discipline: 'Brand Identity · Layout · Typography · Print',
     blurb:
-      'A graphic design practice built around message and craft — purpose-led campaign posters, editorial covers, screen-printed graphics and repeat prints where every layout is composed, not decorated.',
+      'A graphic design practice built around message and craft — from a full brand identity to purpose-led campaign posters, editorial covers and screen-printed graphics, where every layout is composed, not decorated.',
     statement:
-      'This is design that communicates. Working across campaign posters, brand banners, book covers, screen printing and repeat prints, I take a brief from concept and research through typographic system, composition and colour to a finished, print-ready artwork. The work moves fluidly between the poster wall and the fabric roll — a visual language rooted in strong hierarchy, considered type and a designer\u2019s eye for the details that make a layout feel intentional.',
+      'This is design that communicates. From building a complete brand identity to campaign posters, book covers, screen printing and repeat prints, I take a brief from concept and research through logo, typographic system, composition and colour to a finished, print-ready artwork. The work moves fluidly between the screen, the poster wall and the fabric roll — a visual language rooted in strong hierarchy, considered type and a designer\u2019s eye for the details that make a layout feel intentional.',
     // Curated cover for the homepage feature and hero.
-    cover: encodeURI(GD + '/professional 1-Recovered.jpg'),
-    disciplines: ['Campaign & Poster', 'Editorial & Covers', 'Screen Printing', 'Repeat & Textile Graphics', 'Type & Layout'],
+    cover: encodeURI(GD + '/tex 77.jpg'),
+    // Homepage mosaic — one piece from four different disciplines for variety.
+    homeFeature: pick(GD, [
+      'professional 1-Recovered.jpg',
+      'WhatsApp Image 2026-07-26 at 8.57.22 PM.jpeg',
+      'BANNER 1.jpg',
+      'book cover 1.jpg'
+    ]),
+    disciplines: ['Brand Identity', 'Campaign & Poster', 'Editorial & Covers', 'Screen Printing', 'Repeat & Textile', 'Type & Layout'],
+    // Featured project spotlight — a full brand identity case study.
+    spotlight: {
+      label: 'Featured Project',
+      client: 'ELLIPSIS',
+      title: 'A Travel Brand, End to End',
+      tagline: 'Where memories are born, and dreams take flight.',
+      text:
+        'ELLIPSIS is a complete brand identity I designed for a travel company — a flexible logo system built around a friendly explorer mark, a circular tagline seal and a confident wordmark. The suite spans primary logo, emblem and playful mascot variations, engineered to stay recognisable from a boarding pass to a billboard.',
+      tags: ['Logo System', 'Wordmark', 'Emblem', 'Brand Mascot'],
+      images: pick(GD, gdEllipsis)
+    },
+    // Live, published brand — external link.
+    liveProject: {
+      label: 'Live Brand',
+      name: 'Maquillage',
+      title: 'A Cosmetic Brand, Live on the Web',
+      text:
+        'Maquillage is a cosmetics brand I designed and built end to end — identity, packaging, campaign visuals and a fully published website. Explore the live brand experience, from product storytelling to layout and typography.',
+      cta: 'Visit the Live Site',
+      url: 'https://taniazahidkayani1.wixsite.com/maquillage',
+      images: [
+        encodeURI(GD + '/maquillage/cover.jpg'),
+        encodeURI(GD + '/maquillage/campaign.jpg'),
+        encodeURI(GD + '/maquillage/wonder-liner.png')
+      ]
+    },
     groups: [
       {
         title: 'Campaign & Poster Design',
@@ -198,7 +235,7 @@
         title: 'Screen Printing',
         num: '04',
         caption: 'Graphics translated to the print bed — separations, layered colour and hands-on process that bridges digital artwork and physical print.',
-        images: pick(GD, ['a-4 screen printing.jpg', 'a-5 screen printing.jpg', 'screen printing tetile 7.jpg'])
+        images: pick(GD, ['a-5 screen printing.jpg', 'screen printing tetile 7.jpg'])
       },
       {
         title: 'Repeat, Print & Scarf Design',

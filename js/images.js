@@ -181,6 +181,10 @@ window.__IMAGES__ = {
     "Gemini_Generated_Image_q8b6xfq8b6xfq8b6.png"
   ],
   "7 - Graphic Design": [
+    "Screenshot 2023-07-02 135125.jpg",
+    "Screenshot 2023-07-02 150707.jpg",
+    "Screenshot 2023-07-02 152445.jpg",
+    "Screenshot 2023-07-02 214209.jpg",
     "professional 1-Recovered.jpg",
     "professional 5-Recovered.jpg",
     "professional 7-Recovered.jpg",
@@ -190,7 +194,6 @@ window.__IMAGES__ = {
     "book cover 1.jpg",
     "book cover 2.jpg",
     "book cover  4.jpg",
-    "a-4 screen printing.jpg",
     "a-5 screen printing.jpg",
     "screen printing tetile 7.jpg",
     "REPEAT 4.jpg",
@@ -202,7 +205,6 @@ window.__IMAGES__ = {
     "developments and elements.jpg",
     "Untitled-1.jpg",
     "Untitled-1 r.jpg",
-    "Untitled-3.jpg",
     "Untitled-3 1111111.jpg",
     "Untitled-4 4.jpg",
     "Untitled-4 s.jpg",

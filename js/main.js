@@ -144,7 +144,8 @@
     // Graphic design home mosaic
     var gdMosaic = qs('#gdHomeMosaic');
     if (gdMosaic && P.graphicDesign) {
-      P.graphicDesign.images.slice(0, 4).forEach(function (src) {
+      var gdHome = P.graphicDesign.homeFeature || P.graphicDesign.images.slice(0, 4);
+      gdHome.slice(0, 4).forEach(function (src) {
         var img = el('img');
         img.loading = 'lazy';
         img.src = src;
@@ -272,9 +273,43 @@
       });
     }
 
+    // Featured project spotlight
+    var spot = qs('#gdSpotlight');
+    if (spot && g.spotlight) {
+      var s = g.spotlight;
+      spot.hidden = false;
+      var lead = s.images[0] || '';
+      var thumbs = s.images.slice(1);
+      spot.innerHTML =
+        '<div class="wrap gd-spot__grid">' +
+          '<div class="gd-spot__text reveal">' +
+            '<div class="eyebrow gd-spot__label">' + s.label + '</div>' +
+            '<div class="gd-spot__client">' + s.client + '</div>' +
+            '<h2 class="gd-spot__title">' + s.title + '</h2>' +
+            '<p class="gd-spot__tagline">&ldquo;' + s.tagline + '&rdquo;</p>' +
+            '<p class="gd-spot__body">' + s.text + '</p>' +
+            '<div class="gd-spot__tags">' +
+              s.tags.map(function (t) { return '<span class="gd-tag gd-tag--dark">' + t + '</span>'; }).join('') +
+            '</div>' +
+          '</div>' +
+          '<div class="gd-spot__media reveal">' +
+            '<figure class="gd-spot__lead gd-fig"><img loading="lazy" src="' + lead + '" alt="' + s.client + ' primary logo"></figure>' +
+            '<div class="gd-spot__thumbs">' +
+              thumbs.map(function (src) {
+                return '<figure class="gd-fig"><img loading="lazy" src="' + src + '" alt="' + s.client + ' logo variation"></figure>';
+              }).join('') +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      // Wire lightbox for spotlight images
+      qsa('.gd-spot__media .gd-fig', spot).forEach(function (fig, i) {
+        fig.addEventListener('click', function () { openLightbox(s.images, i); });
+      });
+    }
+
     // Grouped work
     var wrap = qs('#gdGroups');
-    var gridStyles = ['gd-grid--trio', 'gd-grid--trio', 'gd-grid--trio', 'gd-grid--trio', 'gd-grid--offset', 'gd-grid--pair', 'gd-grid--mosaic'];
+    var gridStyles = ['gd-grid--trio', 'gd-grid--trio', 'gd-grid--trio', 'gd-grid--pair', 'gd-grid--offset', 'gd-grid--pair', 'gd-grid--mosaic'];
     g.groups.forEach(function (group, gi) {
       if (!group.images || !group.images.length) return;
       var section = el('div', 'gd-group reveal');
@@ -300,6 +335,35 @@
       section.appendChild(grid);
       wrap.appendChild(section);
     });
+
+    // Live brand external link
+    var live = qs('#gdLive');
+    if (live && g.liveProject) {
+      var lp = g.liveProject;
+      live.hidden = false;
+      var lpImgs = lp.images || [];
+      var gallery = lpImgs.length
+        ? '<div class="gd-live__gallery">' +
+            lpImgs.map(function (src) {
+              return '<figure class="gd-fig"><img loading="lazy" src="' + src + '" alt="' + lp.name + ' brand design"></figure>';
+            }).join('') +
+          '</div>'
+        : '';
+      live.innerHTML =
+        '<div class="wrap gd-live__inner">' +
+          '<div class="gd-live__text">' +
+            '<div class="eyebrow gd-live__label">' + lp.label + '</div>' +
+            '<div class="gd-live__name">' + lp.name + '</div>' +
+            '<h2 class="gd-live__title">' + lp.title + '</h2>' +
+            '<p class="gd-live__body">' + lp.text + '</p>' +
+            '<a class="btn btn--solid gd-live__btn" href="' + lp.url + '" target="_blank" rel="noopener noreferrer">' + lp.cta + ' &#8599;</a>' +
+          '</div>' +
+          gallery +
+        '</div>';
+      qsa('.gd-live__gallery .gd-fig', live).forEach(function (fig, i) {
+        fig.addEventListener('click', function () { openLightbox(lpImgs, i); });
+      });
+    }
   }
 
   /* ---------- Boot ---------- */
