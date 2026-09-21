@@ -185,15 +185,20 @@
       'BANNER 1.jpg',
       'book cover 1.jpg'
     ]),
-    disciplines: ['Brand Identity', 'Campaign & Poster', 'Editorial & Covers', 'Screen Printing', 'Repeat & Textile', 'Type & Layout'],
+    disciplines: ['Campaigns', 'Digital', 'Social', 'Print', 'Editorial'],
     // Featured project spotlight — a full brand identity case study.
     spotlight: {
       label: 'Featured Project',
       client: 'ELLIPSIS',
+      kind: 'Brand Identity',
       title: 'A Travel Brand, End to End',
       tagline: 'Where memories are born, and dreams take flight.',
       text:
-        'ELLIPSIS is a complete brand identity I designed for a travel company — a flexible logo system built around a friendly explorer mark, a circular tagline seal and a confident wordmark. The suite spans primary logo, emblem and playful mascot variations, engineered to stay recognisable from a boarding pass to a billboard.',
+        'ELLIPSIS is a complete brand identity I designed for a travel company — a flexible logo system built around a friendly explorer mark, a circular tagline seal and a confident wordmark.',
+      brief: 'Create a memorable identity for a travel company that works everywhere, from a boarding pass to a billboard.',
+      concept: 'A friendly explorer mark and a circular tagline seal that make wanderlust instantly recognisable.',
+      role: 'Full brand identity — logo system, wordmark, emblem and mascot variations, and usage rules.',
+      deliverables: 'Primary logo, emblem, wordmark, brand mascot set, colour and lockup variations.',
       tags: ['Logo System', 'Wordmark', 'Emblem', 'Brand Mascot'],
       images: pick(GD, gdEllipsis)
     },
@@ -201,9 +206,14 @@
     liveProject: {
       label: 'Live Brand',
       name: 'Maquillage',
+      kind: 'Brand · Packaging · Digital',
       title: 'A Cosmetic Brand, Live on the Web',
       text:
-        'Maquillage is a cosmetics brand I designed and built end to end — identity, packaging, campaign visuals and a fully published website. Explore the live brand experience, from product storytelling to layout and typography.',
+        'Maquillage is a cosmetics brand I designed and built end to end — identity, packaging, campaign visuals and a fully published e-commerce website.',
+      brief: 'Launch a bold cosmetics brand with a complete identity and a live, shoppable website.',
+      concept: 'A confident "Be Bold" beauty brand carried consistently from logo to storefront.',
+      role: 'Brand identity, packaging, campaign and product artwork, plus website design and build.',
+      deliverables: 'Logo, packaging, campaign key visuals, product ads, published e-commerce site.',
       cta: 'Visit the Live Site',
       url: 'https://taniazahidkayani1.wixsite.com/maquillage',
       images: [
@@ -214,45 +224,73 @@
     },
     groups: [
       {
-        title: 'Campaign & Poster Design',
+        title: 'Awareness Campaigns',
         num: '01',
-        caption: 'Purpose-driven visual campaigns — bold type, single-message hierarchy and imagery that stops the scroll and makes a point.',
+        kind: 'Campaign · Print · Social',
+        brief: 'Turn a cause into a single, arresting poster that lands its message in seconds.',
+        concept: 'Symbolic, illustrative key visuals paired with one confident line of copy.',
+        role: 'Concept, art direction, illustration, typography and final poster layout.',
+        deliverables: 'Campaign key visuals, poster artwork, social-ready crops.',
         images: pick(GD, ['professional 1-Recovered.jpg', 'professional 5-Recovered.jpg', 'professional 7-Recovered.jpg'])
       },
       {
         title: 'Banners & Brand Graphics',
         num: '02',
-        caption: 'Wide-format brand banners built to hold their message at a glance — balanced composition, confident type and colour that carries a brand voice.',
+        kind: 'Brand · Print · Digital',
+        brief: 'Design wide-format banners that carry a brand message at a glance.',
+        concept: 'Confident type and colour blocking built to stay legible at scale.',
+        role: 'Layout, typography and colour direction.',
+        deliverables: 'Banner artwork, print-ready files, digital variants.',
         images: pick(GD, ['BANNER 1.jpg', 'BANNER 2.jpg', 'BANNER 4.jpg'])
       },
       {
         title: 'Editorial & Book Covers',
         num: '03',
-        caption: 'Cover design where concept meets craft — typographic hierarchy, image treatment and layout that make a story tangible on the shelf.',
+        kind: 'Editorial · Print',
+        brief: 'Translate a story into a single, shelf-ready cover image.',
+        concept: 'Typographic hierarchy and image treatment that set the tone before a page is turned.',
+        role: 'Cover concept, typesetting, image treatment and layout.',
+        deliverables: 'Cover artwork, spine and back layout, print-ready files.',
         images: pick(GD, ['book cover 1.jpg', 'book cover 2.jpg', 'book cover  4.jpg'])
       },
       {
         title: 'Screen Printing',
         num: '04',
-        caption: 'Graphics translated to the print bed — separations, layered colour and hands-on process that bridges digital artwork and physical print.',
+        kind: 'Print · Illustration',
+        brief: 'Take detailed illustration to the print bed as clean, separated artwork.',
+        concept: 'Line and layered colour engineered for a physical, hands-on print process.',
+        role: 'Illustration, colour separation and print preparation.',
+        deliverables: 'Screen-ready separations and printed samples.',
         images: pick(GD, ['a-5 screen printing.jpg', 'screen printing tetile 7.jpg'])
       },
       {
         title: 'Repeat, Print & Scarf Design',
         num: '05',
-        caption: 'Surface graphics engineered as repeats — motif development, colourways and placement designed to sit as beautifully on fabric as on the page.',
+        kind: 'Print · Surface · Digital',
+        brief: 'Develop surface graphics that work as seamless repeats across products.',
+        concept: 'Motifs and colourways designed to sit as beautifully on fabric as on the page.',
+        role: 'Motif development, repeat construction, colourways and placement.',
+        deliverables: 'Repeat artwork, scarf layouts, colourway sets.',
         images: pick(GD, ['REPEAT 4.jpg', 'TEX 2 4.jpg', 'tex 77.jpg', 'TEX 8-Recovered.jpg', 'scarf print tania 1.jpg'])
       },
       {
         title: 'Process & Development',
         num: '06',
-        caption: 'The thinking behind the finished piece — elements, iterations and development work that show how each design was resolved.',
+        kind: 'Research · Development',
+        brief: 'Show the thinking that resolves a design from first idea to finished piece.',
+        concept: 'Elements, iterations and refinement documented openly.',
+        role: 'Research, development and design iteration.',
+        deliverables: 'Development sheets and element studies.',
         images: pick(GD, ['development 17.jpg', 'developments and elements.jpg'])
       },
       {
         title: 'Selected Graphics & Explorations',
         num: '07',
-        caption: 'A wider archive of compositions, type studies and applied graphics across the practice.',
+        kind: 'Mixed · Studies',
+        brief: 'A wider archive of applied graphics and type studies across briefs.',
+        concept: 'Ongoing exploration across formats, subjects and treatments.',
+        role: 'Design and art direction across each piece.',
+        deliverables: 'Assorted graphics, type studies and applied layouts.',
         images: rest(GD, gdFeatured)
       }
     ],

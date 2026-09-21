@@ -255,7 +255,8 @@
     qs('#gdCat').textContent = g.category + ' \u00b7 ' + g.year;
     qs('#gdTitle').innerHTML = g.title + (g.subtitle ? ' <em>' + g.subtitle + '</em>' : '');
     qs('#gdBlurb').textContent = g.blurb;
-    qs('#gdHeroImg').src = g.cover || (g.images[0] || '');
+    var heroImg = qs('#gdHeroImg');
+    if (heroImg) heroImg.src = g.cover || (g.images[0] || '');
     qs('#gdStatement').textContent = g.statement;
 
     var tags = qs('#gdTags');
@@ -273,6 +274,19 @@
       });
     }
 
+    // Case-study panel: Brief / Concept / My Role / Deliverables
+    function caseHtml(o, variant) {
+      var rows = [
+        ['Brief', o.brief], ['Concept', o.concept],
+        ['My Role', o.role], ['Deliverables', o.deliverables]
+      ].filter(function (r) { return r[1]; });
+      if (!rows.length) return '';
+      return '<dl class="gd-case' + (variant ? ' gd-case--' + variant : '') + '">' +
+        rows.map(function (r) {
+          return '<div class="gd-case__row"><dt>' + r[0] + '</dt><dd>' + r[1] + '</dd></div>';
+        }).join('') + '</dl>';
+    }
+
     // Featured project spotlight
     var spot = qs('#gdSpotlight');
     if (spot && g.spotlight) {
@@ -283,11 +297,12 @@
       spot.innerHTML =
         '<div class="wrap gd-spot__grid">' +
           '<div class="gd-spot__text reveal">' +
-            '<div class="eyebrow gd-spot__label">' + s.label + '</div>' +
+            '<div class="eyebrow gd-spot__label">' + s.label + (s.kind ? ' &middot; ' + s.kind : '') + '</div>' +
             '<div class="gd-spot__client">' + s.client + '</div>' +
             '<h2 class="gd-spot__title">' + s.title + '</h2>' +
             '<p class="gd-spot__tagline">&ldquo;' + s.tagline + '&rdquo;</p>' +
             '<p class="gd-spot__body">' + s.text + '</p>' +
+            caseHtml(s, 'dark') +
             '<div class="gd-spot__tags">' +
               s.tags.map(function (t) { return '<span class="gd-tag gd-tag--dark">' + t + '</span>'; }).join('') +
             '</div>' +
@@ -316,8 +331,10 @@
       var head = el('div', 'gd-group__head');
       head.innerHTML =
         '<span class="gd-group__num">' + (group.num || String(gi + 1).padStart(2, '0')) + '</span>' +
+        (group.kind ? '<div class="gd-group__kind">' + group.kind + '</div>' : '') +
         '<h2 class="gd-group__title">' + group.title + '</h2>' +
-        '<p class="gd-group__caption">' + group.caption + '</p>';
+        (group.caption ? '<p class="gd-group__caption">' + group.caption + '</p>' : '') +
+        caseHtml(group);
       section.appendChild(head);
 
       var grid = el('div', 'gd-grid ' + (gridStyles[gi] || 'gd-grid--mosaic'));
@@ -352,10 +369,11 @@
       live.innerHTML =
         '<div class="wrap gd-live__inner">' +
           '<div class="gd-live__text">' +
-            '<div class="eyebrow gd-live__label">' + lp.label + '</div>' +
+            '<div class="eyebrow gd-live__label">' + lp.label + (lp.kind ? ' &middot; ' + lp.kind : '') + '</div>' +
             '<div class="gd-live__name">' + lp.name + '</div>' +
             '<h2 class="gd-live__title">' + lp.title + '</h2>' +
             '<p class="gd-live__body">' + lp.text + '</p>' +
+            caseHtml(lp, 'light') +
             '<a class="btn btn--solid gd-live__btn" href="' + lp.url + '" target="_blank" rel="noopener noreferrer">' + lp.cta + ' &#8599;</a>' +
           '</div>' +
           gallery +
